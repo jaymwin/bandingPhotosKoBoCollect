@@ -1,14 +1,14 @@
 
 library(tidyverse)
 library(readxl)
-library(lubridate)
 library(here)
 
-here <- here::here()
-here()
+
+# read in banding data and image paths and join -------------------------------------------
 
 dat <- read_excel(here('SERDP banding - all versions - labels - 2019-01-24-19-44-41.xlsx'))
 
+# grab relevant columns
 dat <- dat %>%
   select(markerID, date, tailPhoto, frontPopsiclePhoto, backPopsiclePhoto, frontWingPhoto, backWingPhoto, otherPhoto)
 
@@ -18,21 +18,23 @@ dat <- dat %>%
   filter(!is.na(fileName)) %>% # get rid of NA's (missing or not taken photos)
   arrange(markerID, photo_type) # organize by bird and photo type
 
+# create tibble of photos to be named
 rawPhotos <- list.files(path = here(), pattern = '.jpg', full.names = FALSE, recursive = TRUE) %>%
   as.tibble() %>%
   rename(path = value) %>%
   mutate(fileName = str_sub(path, start = -17, end = -1))
 
+# join photos with banding data
 dat <- dat %>%
   left_join(., rawPhotos) %>%
   select(-fileName)
 
 # now loop through each bird and type of photo -------------------------
 
-# function for naming images and reading links: https://stackoverflow.com/questions/54262620/downloading-images-using-curl-library-in-a-loop-over-data-frame
+# adapted from function for naming images and reading links: https://stackoverflow.com/questions/54262620/downloading-images-using-curl-library-in-a-loop-over-data-frame
 rename_photos <- as_mapper(~file.rename(from = ..4, 
                                          to = paste0(here('renamed_images'), '/', ..1,"_",..2,"_",..3,".jpg")))
 
-# finally, rename jpgs and put in renamed_images folder using purrr
+# rename jpgs and put in renamed_images folder using purrr
 dat %>%
   pmap_chr(rename_photos)
