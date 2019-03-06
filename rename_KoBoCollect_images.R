@@ -4,9 +4,19 @@ library(readxl)
 library(here)
 
 
+# Find/unzip data ---------------------------------------------------------
+
+# find paths to excel and zip files downloaded from KoBo website
+excel <- list.files(path = here(), pattern = '.xlsx')
+zip <- list.files(path = here(), pattern = '.zip')
+
+# unzip the photos
+unzip(zip, exdir = here())
+
+
 # read in banding data and image paths and join -------------------------------------------
 
-dat <- read_excel(here('SERDP banding - all versions - labels - 2019-02-01-18-11-23.xlsx'))
+dat <- read_excel(here(excel))
 
 # grab relevant columns
 dat <- dat %>%
