@@ -41,7 +41,7 @@ dat <- dat %>%
 
 # create tibble of photos to be named
 rawPhotos <- list.files(path = here(), pattern = '.jpg', full.names = FALSE, recursive = TRUE) %>%
-  as_tibble() %>%
+  enframe(name = NULL) %>%
   rename(path = value) %>%
   mutate(fileName = str_sub(path, start = -17, end = -1))
 
