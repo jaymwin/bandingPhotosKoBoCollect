@@ -27,7 +27,7 @@ dat <- dat %>%
   mutate(
     transmitterID = as.character(transmitterID),
     markerID = case_when(
-      is.na(markerID) ~ paste0(transmitterID, 'tag'),
+      is.na(markerID) ~ str_c(transmitterID, 'tag'),
       TRUE ~ markerID
     )
   ) %>%
@@ -55,7 +55,7 @@ dat <- dat %>%
 
 # adapted from function for naming images and reading links: https://stackoverflow.com/questions/54262620/downloading-images-using-curl-library-in-a-loop-over-data-frame
 rename_photos <- as_mapper(~file.rename(from = ..4, 
-                                        to = paste0(here('renamed_images'), '/', ..1,"_",..2,"_",..3,".jpg")))
+                                        to = str_c(here('renamed_images'), '/', ..1,"_",..2,"_",..3,".jpg")))
 
 # create a folder to put renamed images in
 dir.create(here('renamed_images'))
