@@ -6,7 +6,7 @@ library(here)
 
 # Find/unzip data ---------------------------------------------------------
 
-# find paths to excel and zip files downloaded from KoBo website
+# find paths to excel and zip files downloaded from KoBo website (these should be together with this script in same folder)
 excel <- list.files(path = here(), pattern = '.xlsx')
 zip <- list.files(path = here(), pattern = '.zip')
 
