@@ -60,6 +60,6 @@ rename_photos <- as_mapper(~file.rename(from = ..4,
 # create a folder to put renamed images in
 dir.create(here('renamed_images'))
 
-# rename jpgs and put in renamed_images folder using purrr
+# rename jpgs and put in 'renamed_images' folder using purrr::pmap_chr
 dat %>%
   pmap_chr(rename_photos)
