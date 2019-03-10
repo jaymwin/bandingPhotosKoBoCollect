@@ -18,7 +18,7 @@ unzip(zip, exdir = here())
 
 dat <- read_excel(here(excel))
 
-# grab relevant columns
+# grab relevant columns (band number, transmitter ID if no band, and photo types)
 dat <- dat %>%
   select(markerID, transmitterID, date, tailPhoto, frontPopsiclePhoto, backPopsiclePhoto, frontWingPhoto, backWingPhoto, otherPhoto)
 
