@@ -1,6 +1,6 @@
 # bandingPhotosKoboCollect
 
-Copy and rename banding photos from KoBoCollect survey:
+Rename banding photos from KoBoCollect survey:
 
 1. Download .xlsx of banding data and zipped folder of banding photos from KoBoToolbox
 1. Place together in a folder, along with script
