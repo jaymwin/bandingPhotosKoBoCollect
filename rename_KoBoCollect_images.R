@@ -46,7 +46,7 @@ dat <- dat %>%
 
 # adapted from function for naming images and reading links: https://stackoverflow.com/questions/54262620/downloading-images-using-curl-library-in-a-loop-over-data-frame
 rename_photos <- as_mapper(~file_move(path = ..4, 
-                                      new_path = str_c(here('renamed_images'), '/', ..1,"_",..2,"_",..3,".jpg")))
+                                      new_path = str_c(here('renamed_images'), '/', ..1, "_", ..2, "_", ..3, ".jpg")))
 
 # create a folder to put renamed images in
 dir_create(here('renamed_images'))
