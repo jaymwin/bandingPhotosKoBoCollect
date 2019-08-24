@@ -9,6 +9,8 @@ Rename banding photos from KoBoCollect (https://www.kobotoolbox.org/) survey, a 
 
 This code can be applied to other KoBoCollect surveys to handle and archive photos collected with the app.
 
-<img src="200375899_2019-05-29_frontPopsiclePhoto.jpg" width="200">
+An example file name for a renamed photo will look like this: **200375899_2019-05-29_frontPopsiclePhoto.jpg**
+
+<img src="200375899_2019-05-29_frontPopsiclePhoto.jpg" width="500">
 
 
