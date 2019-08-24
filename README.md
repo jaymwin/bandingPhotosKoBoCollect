@@ -8,3 +8,6 @@ Rename banding photos from KoBoCollect (https://www.kobotoolbox.org/) survey, a 
 1. Move photos into banding photos folder (`02-move_photos.R`)
 
 This code can be applied to other KoBoCollect surveys to handle and archive photos collected with the app.
+
+![Choose the GPS text file](./200375899_2019-05-29_frontPopsiclePhoto.jpg)  
+
