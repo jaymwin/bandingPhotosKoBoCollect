@@ -9,5 +9,6 @@ Rename banding photos from KoBoCollect (https://www.kobotoolbox.org/) survey, a 
 
 This code can be applied to other KoBoCollect surveys to handle and archive photos collected with the app.
 
-![Choose the GPS text file](./200375899_2019-05-29_frontPopsiclePhoto.jpg =250x)  
+<img src="200375899_2019-05-29_frontPopsiclePhoto.jpg" width="200">
+
 
