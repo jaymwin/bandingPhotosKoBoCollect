@@ -16,6 +16,10 @@ zip <- dir_ls(path = here(), glob = '*.zip')
 # unzip the photos
 unzip(zip, exdir = here())
 
+# delete zip file now
+zip %>%
+  file_delete()
+
 
 # read in banding data and image paths and join -------------------------------------------
 
